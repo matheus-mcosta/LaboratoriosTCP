@@ -55,8 +55,8 @@ public class PosicaoMapa4x4 {
         System.out.println("(" + x + ", " + y + ")");
     }
 
-    public int distancia(final PosicaoMapa4x4 p) {
-        return (int) Math.sqrt(Math.pow(x - p.getX(), 2) + Math.pow(y - p.getY(), 2));
+    public double distancia(final PosicaoMapa4x4 p) {
+        return (double) Math.sqrt(Math.pow(x - p.getX(), 2) + Math.pow(y - p.getY(), 2));
     }
 
     private void reset() {
