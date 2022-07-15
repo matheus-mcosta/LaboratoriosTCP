@@ -41,6 +41,7 @@ public class PosicaoMapa4x4 { // atributos
         return y;
     }
 
+    // retorna total de objetos criados
     public static int getNumPosicoesOcupadas() {
         return numPosicoesOcupadas;
     }
@@ -54,6 +55,7 @@ public class PosicaoMapa4x4 { // atributos
         System.out.println("(" + x + ", " + y + ")");
     }
 
+    // distancia entre dois pontos
     public double distancia(final PosicaoMapa4x4 p) {
         return (double) Math.sqrt(Math.pow(x - p.getX(), 2) + Math.pow(y - p.getY(), 2));
     }

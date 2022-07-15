@@ -19,7 +19,8 @@ public class AplicacaoTestaPosicoes {
         "Digite o valor de x(0 a 3) do p" + PosicaoMapa4x4.getNumPosicoesOcupadas() + " : ");
 
     int xInput = scanner.nextInt();
-    System.out.println("Digite o valor de y(0 a 3) p: ");
+    System.out.println(
+        "Digite o valor de y(0 a 3) do p" + PosicaoMapa4x4.getNumPosicoesOcupadas() + " : ");
     int yInput = scanner.nextInt();
 
     vX = p.setX(xInput);
@@ -70,6 +71,9 @@ public class AplicacaoTestaPosicoes {
     lista.add(p2);
     lista.add(p3);
     imprimeMapa(lista);
+
+    // fecha o scanner antes de acabar a main
+    scanner.close();
   }
 
   private static void imprimeMapa(ArrayList<PosicaoMapa4x4> lista) {
@@ -79,13 +83,13 @@ public class AplicacaoTestaPosicoes {
       mapa[p.getX()][p.getY()] = true; // passa para true todos as posicoes da lista
     }
 
-        // percorre o mapa 4x4 e se a posicao estiver em true, print X, se nao print - 
+    // percorre o mapa 4x4 e se a posicao estiver em true, print X, se nao print -
     for (int i = 0; i < MAP_HEIGHT; i++) {
       for (int j = 0; j < MAP_WIDTH; j++) {
-        if (mapa[i][j]) {
-          System.out.print("X");
+        if (mapa[j][i]) {
+          System.out.print("X ");
         } else {
-          System.out.print("-");
+          System.out.print("- ");
         }
       }
       System.out.println();
