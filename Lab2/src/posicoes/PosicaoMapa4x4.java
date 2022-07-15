@@ -1,7 +1,6 @@
 package posicoes;
 
-public class PosicaoMapa4x4 {
-    // atributos
+public class PosicaoMapa4x4 { // atributos
     private int x;
     private int y;
     private static int numPosicoesOcupadas;
