@@ -73,16 +73,20 @@ public class AplicacaoTestaPosicoes {
   }
 
   private static void imprimeMapa(ArrayList<PosicaoMapa4x4> lista) {
+    boolean mapa[][] = new boolean[4][4]; // todos false por default
 
-    // print a map 4x4 with [] and X for list position
+    for (PosicaoMapa4x4 p : lista) {
+      mapa[p.getX()][p.getY()] = true; // passa para true todos as posicoes da lista
+    }
+
+        // percorre o mapa 4x4 e se a posicao estiver em true, print X, se nao print - 
     for (int i = 0; i < MAP_HEIGHT; i++) {
       for (int j = 0; j < MAP_WIDTH; j++) {
-        for (int k = 0; k < lista.size(); k++) {
-          if (lista.get(k).getX() == j && lista.get(k).getY() == i) {
-            System.out.print("X");
-          }
+        if (mapa[i][j]) {
+          System.out.print("X");
+        } else {
+          System.out.print("-");
         }
-        System.out.print("[]");
       }
       System.out.println();
     }
