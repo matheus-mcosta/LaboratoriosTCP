@@ -1,0 +1,65 @@
+
+@startuml
+skinparam classAttributeIconSize 0
+skinparam sequenceMessageAlign left
+class Professor{
+  -int id
+  -String departamento
+
+
+  +setProfessor()
+  +setProfessor(int id, String departamento)
+
+  +int getProfessorId()
+
+
+}
+
+class Turma{
+  -int numAlunos
+  -int numMonitores
+  -int professor
+  -ArrayList monitores
+  -ArrayList alunos
+
+  +adicionaAluno()
+  +removeAluno()
+  +imprimeAlunos()
+  
+  +setTurma()
+
+  +int getTurmaNumAlunos()
+  +int getTurmaNumMonitores()
+  +int getTurmaProfessor()
+  +ArrayList getMonitores()
+  +ArrayList getAlunos()
+
+}
+
+class Aluno{
+  -int numeroMatricula
+  -float indiceDesempenho
+
+
+  void aumentaIndiceDesempenho()
+  void diminuiIndiceDesempenho()
+  void imprimeAluno()
+
+}
+
+class Monitor {
+  -semestreAtual
+  -temExperiencia
+
+
+}
+
+Professor "1"--* "1..*"Turma : leciona
+
+Aluno "10..45"--* "1"Turma : pertence
+
+Monitor "0..2" --o "1" Turma : auxilia
+
+
+@enduml
+

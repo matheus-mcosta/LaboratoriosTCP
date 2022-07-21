@@ -47,7 +47,7 @@ public class PosicaoMapa4x4 { // atributos
     return numPosicoesOcupadas;
   }
 
-    // retorna um objeto com os valores do atributos 
+  // retorna um objeto com os valores do atributos
   public PosicaoMapa4x4 copy() {
     final PosicaoMapa4x4 p = new PosicaoMapa4x4(this.x, this.y);
     return p;
