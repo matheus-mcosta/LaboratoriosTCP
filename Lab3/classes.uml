@@ -1,16 +1,29 @@
 
 @startuml
 skinparam classAttributeIconSize 0
-skinparam sequenceMessageAlign left
+skinparam sequenceMessageAlign right
+skinparam nodesep 80
+skinparam ranksep 100
+
+skinparam classFontSize 12
+skinparam classFontColor automatic
+skinparam classHeaderBackgroundColor #2f2f2f
+skinparam classBackgroundColor #ddd
+skinparam classBorderColor #000
+
+
 class Professor{
   -int id
   -String departamento
 
 
-  +setProfessor()
-  +setProfessor(int id, String departamento)
+  +Professor()
+  +Professor(int id, String departamento)
 
-  +int getProfessorId()
+  +void setId(int id)
+  +void setDepartamento(String departamento)
+  +int getId()
+  +String getDepartamento()
 
 
 }
@@ -18,19 +31,22 @@ class Professor{
 class Turma{
   -int numAlunos
   -int numMonitores
-  -int professor
+  -Professor professor
   -ArrayList monitores
   -ArrayList alunos
 
-  +adicionaAluno()
-  +removeAluno()
-  +imprimeAlunos()
-  
-  +setTurma()
+  +Turma()
+  +Turma(Professor professor, ArrayList monitores, ArrayList alunos) 
 
-  +int getTurmaNumAlunos()
-  +int getTurmaNumMonitores()
-  +int getTurmaProfessor()
+  +void adicionaAluno(Aluno aluno)
+  +void removeAluno(Aluno aluno)
+  +void imprimeAlunos()
+  +void setProfessor(Professor professor) 
+  +void setMonitores(ArrayList monitores)
+  +void setAlunos(ArrayList alunos)
+  +int getNumAlunos()
+  +int getNumMonitores()
+  +int getProfessor()
   +ArrayList getMonitores()
   +ArrayList getAlunos()
 
@@ -40,25 +56,37 @@ class Aluno{
   -int numeroMatricula
   -float indiceDesempenho
 
+  +Aluno(int numeroMatricula, float indiceDesempenho)
 
-  void aumentaIndiceDesempenho()
-  void diminuiIndiceDesempenho()
-  void imprimeAluno()
+
+  +void aumentaIndiceDesempenho(float aumento)
+  +void diminuiIndiceDesempenho(float decremento)
+  +void imprimeAluno()
+  +void setIndiceDesempenho(float indiceDesempenho)
+  +int getNumeroMatricula()
+  +float getIndiceDesempenho()
 
 }
 
 class Monitor {
-  -semestreAtual
-  -temExperiencia
+  -int semestreAtual
+  -bool temExperiencia
+   
+  +Monitor(int semestreAtual, bool temExperiencia)
+  
+  +void setSemestreAtual(int semestreAtual)
+  +void setTemExperiencia(bool temExperiencia)
+  +int getSemestreAtual()
+  +boolean getTemExperiencia()
 
 
 }
 
-Professor "1"--* "1..*"Turma : leciona
+Professor "1  "--* "1..*     "Turma : "  leciona"
 
-Aluno "10..45"--* "1"Turma : pertence
+Aluno "10..45  "--* "1  "Turma : "  pertence"
 
-Monitor "0..2" --o "1" Turma : auxilia
+Monitor "0..2      "--o "1   " Turma : "auxilia"
 
 
 @enduml
